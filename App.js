@@ -13,9 +13,11 @@ export default function App() {
 
       {fruits.map((fruit, index) => ( //for each item view component is returned 
         //For each fruit map is udes to return a styled box containing the fruit’s name.
+        
         <View key={index} style={styles.itemBox}>
           <Text style={styles.itemText}>{fruit}</Text>
         </View>
+                  
       ))}
 
       <Text style={styles.heading}> Enter Something</Text>
