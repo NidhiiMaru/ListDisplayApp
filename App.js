@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TextInput, ScrollView } from "react-native";
 
 export default function App() {
-  const fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+  const fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"]; //hardcoded array of fruit names
   const [inputValue, setInputValue] = useState("");
-
+  //Declares a state variable called inputValue with an initial value of an empty string "".
+  //setInputValue is the function you call to update inputValue.
   return (
     <ScrollView contentContainerStyle={styles.container}>
+    //The contentContainerStyle applies styles to the inner content wrapper
       <Text style={styles.heading}>🍓 Fruit List</Text>
 
-      {fruits.map((fruit, index) => (
+      {fruits.map((fruit, index) => ( //for each item view component is returned 
+        //For each fruit map is udes to return a styled box containing the fruit’s name.
         <View key={index} style={styles.itemBox}>
           <Text style={styles.itemText}>{fruit}</Text>
         </View>
@@ -20,9 +23,10 @@ export default function App() {
         style={styles.input}
         placeholder="Type here..."
         value={inputValue}
-        onChangeText={setInputValue}
+        onChangeText={setInputValue} //updating the state.
       />
-      {inputValue ? <Text style={styles.preview}>You typed: {inputValue}</Text> : null}
+      {inputValue ? <Text style={styles.preview}>You typed: {inputValue}</Text> : null}  
+          //renders the line "You typed: ..." only if inputValue is not empty.
     </ScrollView>
   );
 }
